@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🍴 Food Menu</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+<h2 class="page-title">Popular Food</h2>
+
+<section class="food-container">
+
+    <div class="food-card">
+        <img src="../images/food/biryani.jpg" alt="Biryani">
+        <h3>Chicken Biryani</h3>
+        <p>₹180</p>
+        <button onclick="addToCart('Chicken Biryani', 180)">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="food-card">
+        <img src="../images/food/pizza.jpg" alt="Pizza">
+        <h3>Pizza</h3>
+        <p>₹250</p>
+        <button onclick="addToCart('Pizza', 250)">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="food-card">
+        <img src="../images/food/burger.jpg" alt="Burger">
+        <h3>Burger</h3>
+        <p>₹120</p>
+        <button onclick="addToCart('Burger', 120)">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="food-card">
+        <img src="../images/food/dosa.jpg" alt="Dosa">
+        <h3>Dosa</h3>
+        <p>₹80</p>
+        <button onclick="addToCart('Dosa', 80)">
+            Add to Cart
+        </button>
+    </div>
+
+</section>
+
+<script src="../js/script.js"></script>
+
+</body>
+</html>

@@ -1,19 +1,28 @@
 public class Delivery {
 
-    private int deliveryId;
-    private String status;
+    int deliveryId;
+    int orderId;
+    String status;
 
-    public Delivery(int deliveryId) {
+    public Delivery(
+            int deliveryId,
+            int orderId,
+            String status) {
+
         this.deliveryId = deliveryId;
-        this.status = "Not Started";
+        this.orderId = orderId;
+        this.status = status;
     }
 
-    public void updateStatus(String newStatus) {
+    public void updateStatus(String status) {
+        this.status = status;
+    }
 
-        status = newStatus;
+    public void display() {
 
-        System.out.println(
-            "Delivery Status : " + status
-        );
+        System.out.println("\n--- DELIVERY ---");
+        System.out.println("Delivery ID: " + deliveryId);
+        System.out.println("Order ID: " + orderId);
+        System.out.println("Status: " + status);
     }
 }

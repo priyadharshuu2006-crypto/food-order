@@ -1,26 +1,27 @@
 public class FoodItem {
 
-    private int foodId;
-    private String name;
-    private double price;
+    int id;
+    String name;
+    double price;
+    Category category;
 
-    public FoodItem(int foodId, String name, double price) {
-        this.foodId = foodId;
+    public FoodItem(
+            int id,
+            String name,
+            double price,
+            Category category) {
+
+        this.id = id;
         this.name = name;
         this.price = price;
+        this.category = category;
     }
 
     public void display() {
         System.out.println(
-            foodId + ". " + name + " - Rs." + price
+                id + ". " + name +
+                " - Rs." + price +
+                " - " + category.name
         );
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getPrice() {
-        return price;
     }
 }

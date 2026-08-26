@@ -1,26 +1,27 @@
 public class Order {
 
-    private int orderId;
-    private User user;
-    private Restaurant restaurant;
-    private double amount;
+    int orderId;
+    User user;
+    double amount;
+    String status;
 
-    public Order(int orderId, User user,
-                 Restaurant restaurant, double amount) {
+    public Order(
+            int orderId,
+            User user,
+            double amount) {
 
         this.orderId = orderId;
         this.user = user;
-        this.restaurant = restaurant;
         this.amount = amount;
+        this.status = "Order Placed";
     }
 
     public void display() {
 
-        System.out.println("\n--------- ORDER ---------");
-        System.out.println("Order ID   : " + orderId);
-        System.out.println("Customer   : " + user.getName());
-        System.out.println("Restaurant : " + restaurant.getName());
-        System.out.println("Amount     : Rs." + amount);
-        System.out.println("Status     : Order Placed");
+        System.out.println("\n--- ORDER ---");
+        System.out.println("Order ID: " + orderId);
+        System.out.println("Customer: " + user.name);
+        System.out.println("Amount: Rs." + amount);
+        System.out.println("Status: " + status);
     }
 }

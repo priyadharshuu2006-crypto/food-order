@@ -6,44 +6,60 @@
     <title>Restaurants</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
 
 <header>
-    <h1>🍴 Food Delivery</h1>
+    <h1>Restaurants</h1>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="restaurants.html">Restaurants</a>
         <a href="cart.html">Cart</a>
+        <a href="profile.html">Profile</a>
     </nav>
 </header>
 
-<h2 class="page-title">Restaurants</h2>
+<div class="section">
 
-<section class="restaurant-container">
+    <h2>Available Restaurants</h2>
 
-    <div class="card">
-        <h3>Spicy Restaurant</h3>
-        <p>Indian • Chinese • Fast Food</p>
-        <button onclick="openMenu()">View Menu</button>
+    <div class="cards">
+
+        <div class="restaurant-card">
+            <h2>Food Palace</h2>
+            <p>📍 Trichy Main Road</p>
+            <p>⭐ 4.5</p>
+            <p>Indian, Pizza, Burger</p>
+
+            <a href="food-menu.html">
+                <button>View Menu</button>
+            </a>
+        </div>
+
+        <div class="restaurant-card">
+            <h2>Spice Restaurant</h2>
+            <p>📍 Trichy Bus Stand</p>
+            <p>⭐ 4.2</p>
+            <p>Indian, Biryani</p>
+
+            <a href="food-menu.html">
+                <button>View Menu</button>
+            </a>
+        </div>
+
+        <div class="restaurant-card">
+            <h2>Tasty Corner</h2>
+            <p>📍 Woraiyur, Trichy</p>
+            <p>⭐ 4.0</p>
+            <p>South Indian</p>
+
+            <a href="food-menu.html">
+                <button>View Menu</button>
+            </a>
+        </div>
+
     </div>
-
-    <div class="card">
-        <h3>Food Palace</h3>
-        <p>Biryani • Pizza • Burgers</p>
-        <button onclick="openMenu()">View Menu</button>
-    </div>
-
-    <div class="card">
-        <h3>Tasty Corner</h3>
-        <p>South Indian • Snacks</p>
-        <button onclick="openMenu()">View Menu</button>
-    </div>
-
-</section>
-
-<script src="../js/script.js"></script>
+</div>
 
 </body>
 </html>

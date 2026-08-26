@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>⭐ Reviews & Ratings</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="order-history.html">Orders</a>
+    </nav>
+</header>
+
+<div class="form-box">
+
+    <h2>Give Your Review</h2>
+
+    <form onsubmit="submitReview(event)">
+
+        <label>Restaurant</label>
+
+        <select id="restaurantName" required>
+            <option value="">Select Restaurant</option>
+            <option value="Food Palace">Food Palace</option>
+            <option value="Spice Restaurant">Spice Restaurant</option>
+            <option value="Tasty Corner">Tasty Corner</option>
+        </select>
+
+        <label>Rating</label>
+
+        <select id="rating" required>
+            <option value="">Select Rating</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+        </select>
+
+        <label>Comment</label>
+
+        <textarea id="reviewComment"
+                  placeholder="Write your review..."
+                  required></textarea>
+
+        <button type="submit">Submit Review</button>
+
+    </form>
+
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

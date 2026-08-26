@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Checkout</h1>
+</header>
+
+<div class="form-box">
+
+    <h2>Delivery Address</h2>
+
+    <form onsubmit="checkout(event)">
+
+        <label>Address</label>
+        <textarea id="address" required></textarea>
+
+        <label>City</label>
+        <input type="text" id="city" required>
+
+        <label>State</label>
+        <input type="text" id="state" required>
+
+        <label>PIN Code</label>
+        <input type="text" id="pincode" required>
+
+        <button type="submit">Continue to Payment</button>
+
+    </form>
+
+    <br>
+    <a href="cart.html">Back to Cart</a>
+
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

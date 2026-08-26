@@ -1,23 +1,19 @@
 public class Restaurant {
 
-    private int restaurantId;
-    private String name;
-    private String location;
+    int id;
+    String name;
+    String location;
 
-    public Restaurant(int restaurantId, String name, String location) {
-        this.restaurantId = restaurantId;
+    public Restaurant(int id, String name, String location) {
+        this.id = id;
         this.name = name;
         this.location = location;
     }
 
     public void display() {
-        System.out.println("\n--------- RESTAURANT ---------");
-        System.out.println("Restaurant ID : " + restaurantId);
-        System.out.println("Name          : " + name);
-        System.out.println("Location      : " + location);
-    }
-
-    public String getName() {
-        return name;
+        System.out.println("\n--- RESTAURANT ---");
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Location: " + location);
     }
 }

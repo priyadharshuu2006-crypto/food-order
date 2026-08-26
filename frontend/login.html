@@ -2,35 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
 
-<div class="form-container">
+<header>
+    <h1>🍴 Food Delivery</h1>
+</header>
 
+<div class="form-box">
     <h2>Login</h2>
 
-    <form onsubmit="login(event)">
+    <form onsubmit="loginUser(event)">
+        <label>Email</label>
+        <input type="email" id="loginEmail" required>
 
-        <input type="email" id="email"
-               placeholder="Email" required>
-
-        <input type="password" id="password"
-               placeholder="Password" required>
+        <label>Password</label>
+        <input type="password" id="loginPassword" required>
 
         <button type="submit">Login</button>
-
     </form>
 
-    <p>Don't have an account?
-        <a href="register.html">Register</a>
-    </p>
+    <p>Don't have an account?</p>
+    <a href="register.html">Create Account</a>
 
+    <br><br>
+    <a href="index.html">Back to Home</a>
 </div>
 
 <script src="../js/script.js"></script>
-
 </body>
 </html>

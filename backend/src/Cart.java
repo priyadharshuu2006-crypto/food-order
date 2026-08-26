@@ -2,23 +2,28 @@ import java.util.ArrayList;
 
 public class Cart {
 
-    private ArrayList<FoodItem> items;
+    ArrayList<OrderItem> items =
+            new ArrayList<OrderItem>();
 
-    public Cart() {
-        items = new ArrayList<>();
+    public void addItem(FoodItem food, int quantity) {
+
+        items.add(new OrderItem(food, quantity));
+
+        System.out.println(
+                food.name + " added to cart."
+        );
     }
 
-    public void addFood(FoodItem food) {
-        items.add(food);
-        System.out.println(food.getName() + " added to cart.");
+    public boolean isEmpty() {
+        return items.isEmpty();
     }
 
     public double getTotal() {
 
         double total = 0;
 
-        for (FoodItem food : items) {
-            total = total + food.getPrice();
+        for (OrderItem item : items) {
+            total = total + item.getTotal();
         }
 
         return total;
@@ -26,18 +31,21 @@ public class Cart {
 
     public void display() {
 
-        System.out.println("\n--------- CART ---------");
+        System.out.println("\n--- CART ---");
 
         if (items.isEmpty()) {
             System.out.println("Cart is empty.");
             return;
         }
 
-        for (FoodItem food : items) {
-            food.display();
+        for (OrderItem item : items) {
+            System.out.println(
+                    item.food.name +
+                    " x " + item.quantity +
+                    " = Rs." + item.getTotal()
+            );
         }
 
-        System.out.println("------------------------");
-        System.out.println("Total : Rs." + getTotal());
+        System.out.println("Total: Rs." + getTotal());
     }
 }

@@ -47,7 +47,7 @@ public class Main {
                 category
         );
 
-        // Cart
+        
         Cart cart = new Cart();
 
         int choice = 0;

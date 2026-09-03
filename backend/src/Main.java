@@ -6,7 +6,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        // User
+        
         User user = new User(
                 1,
                 "Priya",
@@ -52,7 +52,7 @@ public class Main {
 
         int choice = 0;
 
-        while (choice != 15) {
+        while (choice != 17) {
 
             System.out.println();
             System.out.println("================================");
@@ -72,7 +72,10 @@ public class Main {
             System.out.println("12. Rating");
             System.out.println("13. Review");
             System.out.println("14. Notification");
-            System.out.println("15. Exit");
+            System.out.println("15. Nutrition Information");
+            System.out.println("16. Schedule Food Order");
+            System.out.println("17. Exit");
+
             System.out.println("================================");
 
             System.out.print("Enter your choice: ");
@@ -320,8 +323,24 @@ public class Main {
                     notification.send();
 
                     break;
+                    case 15:
+                        System.out.println();
+                        System.out.println("---NUTRITION INFORMATION---");
+                        Nutrition nutrition=new Nutrition(1,1,450,18,55,15);
+                        nutrition.displayNutrition();
+                        break;
+                        case 16:
+                            System.out.println();
+                            System.out.println("---SCHEDULE FOOD ORDER---");
+                            System.out.print("Enter order date(YYYY-MM-DD):");
+                            String date=sc.nextLine();
+                            System.out.print("Enter order time:");
+                            String time=sc.nextLine();
+                            ScheduledOrder scheduledOrder= new ScheduledOrder(1,1001,date,time,"Scheduled");
 
-                case 15:
+                            scheduledOrder.displaySchedule();
+                            break;
+                case 17:
 
                     System.out.println();
                     System.out.println(

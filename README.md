@@ -119,7 +119,8 @@ Food_Delivery/
 │   │   ├── Coupon.java
 │   │   ├── Notification.java
 │   │   └── Search.java
-│   │
+│           Nutrition Information.java
+            ScheduleOrder.java
 │   └── food_delivery.sql
 │
 ├── frontend/
@@ -136,6 +137,8 @@ Food_Delivery/
 │   ├── profile.html
 │   ├── reviews.html
 │   └── admin.html
+        Nutrition Information.html
+        ScheduleOrder.html
 │
 ├── css/
 │   └── style.css

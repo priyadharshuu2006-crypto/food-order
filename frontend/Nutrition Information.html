@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nutrition Information</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+        }
+
+        .nutrition-container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .nutrition-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .food-card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .food-card h2 {
+            margin-top: 0;
+        }
+
+        .nutrition-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .nutrition-box {
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+        }
+
+        .nutrition-box strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .back-button {
+            display: block;
+            width: 150px;
+            margin: 30px auto;
+            padding: 12px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #ff5722;
+            color: white;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nutrition-container">
+
+        <h1>🍎 Nutrition Information</h1>
+
+        <!-- Pizza -->
+        <div class="food-card">
+            <h2>🍕 Cheese Pizza</h2>
+
+            <div class="nutrition-details">
+
+                <div class="nutrition-box">
+                    <strong>Calories</strong>
+                    285 kcal
+                </div>
+
+                <div class="nutrition-box">
+                    <strong>Protein</strong>
+                    12 g
+                </div>
+
+                <div class="nutrition-box">
+                    <strong>Carbohydrates</strong>
+                    36 g
+                </div>
+
+                <div class="nutrition-box">
+                    <strong>Fat</strong>
+                    10 g
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Burger -->
+        <div class="food-card">
+            <h2>🍔 Chicken Burger</h2>
+
+            <div class="nutrition-details">
+
+                <div class="nutrition-box">
+                    <strong>Calories</strong>
+                    350 kcal
+                </div>
+
+                <div class="nutrition-box">
+                    <strong>Protein</strong>
+                    20 g
+                </div>
+
+                <div class="nutrition-box">
+                    <strong>Carbohydrates</strong>
+                    40 g
+                </div>
+
+                <div class="nutrition-box">
+                    <strong>Fat</strong>
+                    15 g
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Biryani -->
+        <div class="food-card">
+            <h2>🍛 Chicken Biryani</h2>
+
+            <div class="nutrition-details">
+
+                <div class="nutrition-box">
+                    <strong>Calories</strong>
+                    450 kcal
+                </div>
+
+                <div class="nutrition-box">
+                    <strong>Protein</strong>
+                    25 g
+                </div>
+
+                <div class="nutrition-box">
+                    <strong>Carbohydrates</strong>
+                    55 g
+                </div>
+
+                <div class="nutrition-box">
+                    <strong>Fat</strong>
+                    18 g
+                </div>
+
+            </div>
+        </div>
+
+        <a href="restaurants.html" class="back-button">
+            Back to Restaurants
+        </a>
+
+    </div>
+
+</body>
+</html>

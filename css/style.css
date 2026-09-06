@@ -1,3 +1,8 @@
+/* =========================================
+   FOOD ORDER AND DELIVERY PLATFORM
+   MAIN STYLE SHEET
+   ========================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,9 +13,12 @@ body {
     font-family: Arial, sans-serif;
     background: #f5f5f5;
     color: #333;
+    line-height: 1.6;
 }
 
-/* Header */
+/* =========================================
+   HEADER
+   ========================================= */
 
 header {
     background: #ff5722;
@@ -34,7 +42,9 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Hero */
+/* =========================================
+   HERO
+   ========================================= */
 
 .hero {
     background: white;
@@ -52,7 +62,9 @@ nav a:hover {
     margin-bottom: 25px;
 }
 
-/* Buttons */
+/* =========================================
+   BUTTONS
+   ========================================= */
 
 button {
     background: #ff5722;
@@ -69,7 +81,9 @@ button:hover {
     background: #e64a19;
 }
 
-/* Section */
+/* =========================================
+   SECTION
+   ========================================= */
 
 .section {
     width: 90%;
@@ -82,7 +96,9 @@ button:hover {
     margin: 20px;
 }
 
-/* Cards */
+/* =========================================
+   CARDS
+   ========================================= */
 
 .cards {
     display: flex;
@@ -106,7 +122,9 @@ button:hover {
     margin-bottom: 15px;
 }
 
-/* Food */
+/* =========================================
+   FOOD
+   ========================================= */
 
 .food-container {
     display: flex;
@@ -136,7 +154,9 @@ button:hover {
     margin: 10px;
 }
 
-/* Forms */
+/* =========================================
+   FORMS
+   ========================================= */
 
 .form-box {
     width: 400px;
@@ -180,7 +200,9 @@ button:hover {
     margin-top: 20px;
 }
 
-/* Cart */
+/* =========================================
+   CART
+   ========================================= */
 
 #cartItems {
     display: flex;
@@ -205,7 +227,9 @@ button:hover {
     border-radius: 10px;
 }
 
-/* Tracking */
+/* =========================================
+   ORDER TRACKING
+   ========================================= */
 
 .tracking {
     background: white;
@@ -228,7 +252,9 @@ button:hover {
     border-bottom: 1px solid #ddd;
 }
 
-/* Table */
+/* =========================================
+   TABLE
+   ========================================= */
 
 table {
     width: 100%;
@@ -241,6 +267,7 @@ th,
 td {
     border: 1px solid #ccc;
     padding: 12px;
+    text-align: left;
 }
 
 th {
@@ -248,7 +275,9 @@ th {
     color: white;
 }
 
-/* Footer */
+/* =========================================
+   FOOTER
+   ========================================= */
 
 footer {
     background: #333;
@@ -258,7 +287,118 @@ footer {
     margin-top: 50px;
 }
 
-/* Mobile */
+/* =========================================
+   NUTRITION INFORMATION
+   ========================================= */
+
+.nutrition-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.nutrition-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.nutrition-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #ccc;
+}
+
+.nutrition-card h2 {
+    margin-bottom: 15px;
+}
+
+.nutrition-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.nutrition-box {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.nutrition-box strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* =========================================
+   SCHEDULE ORDER
+   ========================================= */
+
+.schedule-container {
+    width: 500px;
+    max-width: 90%;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #ccc;
+}
+
+.schedule-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.schedule-form label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.schedule-form input,
+.schedule-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.schedule-form button {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.schedule-message {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* =========================================
+   BACK BUTTON
+   ========================================= */
+
+.back-button {
+    display: inline-block;
+    background: #ff5722;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.back-button:hover {
+    background: #e64a19;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
 
 @media (max-width: 600px) {
 
@@ -278,6 +418,18 @@ footer {
     }
 
     .form-box {
+        width: 90%;
+    }
+
+    .nutrition-details {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule-container {
+        width: 90%;
+    }
+
+    .cart-item {
         width: 90%;
     }
 }

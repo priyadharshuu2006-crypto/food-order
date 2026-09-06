@@ -1,18 +1,65 @@
-// ======================================
-// FOOD DELIVERY FRONTEND JAVASCRIPT
-// ======================================
+/* =========================================
+   FOOD ORDER AND DELIVERY PLATFORM
+   MAIN JAVASCRIPT FILE
+   ========================================= */
+
+// =========================================
+// 1. LOGIN
+// =========================================
+
+function loginUser(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email === "" || password === "") {
+        alert("Please enter email and password.");
+        return;
+    }
+
+    localStorage.setItem("loggedInUser", email);
+
+    alert("Login successful!");
+    window.location.href = "restaurants.html";
+}
 
 
-// --------------------------------------
-// CART
-// --------------------------------------
+// =========================================
+// 2. REGISTER
+// =========================================
+
+function registerUser(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (name === "" || email === "" || password === "") {
+        alert("Please fill all fields.");
+        return;
+    }
+
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userEmail", email);
+
+    alert("Registration successful!");
+    window.location.href = "login.html";
+}
+
+
+// =========================================
+// 3. CART
+// =========================================
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function addToCart(name, price) {
 
-    let item = {
-        name: name,
+function addToCart(foodName, price) {
+
+    const item = {
+        name: foodName,
         price: price
     };
 
@@ -20,16 +67,14 @@ function addToCart(name, price) {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    alert(name + " added to cart!");
-
-    window.location.href = "cart.html";
+    alert(foodName + " added to cart!");
 }
 
 
 function displayCart() {
 
-    let cartItems = document.getElementById("cartItems");
-    let cartTotal = document.getElementById("cartTotal");
+    const cartItems = document.getElementById("cartItems");
+    const totalAmount = document.getElementById("totalAmount");
 
     if (!cartItems) {
         return;
@@ -40,12 +85,10 @@ function displayCart() {
     let total = 0;
 
     if (cart.length === 0) {
+        cartItems.innerHTML = "<p>Your cart is empty.</p>";
 
-        cartItems.innerHTML =
-            "<p>Your cart is empty.</p>";
-
-        if (cartTotal) {
-            cartTotal.innerText = "0";
+        if (totalAmount) {
+            totalAmount.innerText = "₹0";
         }
 
         return;
@@ -53,23 +96,25 @@ function displayCart() {
 
     cart.forEach(function(item, index) {
 
-        total = total + Number(item.price);
+        total += item.price;
 
-        let div = document.createElement("div");
+        const div = document.createElement("div");
 
         div.className = "cart-item";
 
-        div.innerHTML =
-            "<h3>" + item.name + "</h3>" +
-            "<p>Price: ₹" + item.price + "</p>" +
-            "<button onclick='removeFromCart(" + index + ")'>" +
-            "Remove</button>";
+        div.innerHTML = `
+            <h3>${item.name}</h3>
+            <p>Price: ₹${item.price}</p>
+            <button onclick="removeFromCart(${index})">
+                Remove
+            </button>
+        `;
 
         cartItems.appendChild(div);
     });
 
-    if (cartTotal) {
-        cartTotal.innerText = total;
+    if (totalAmount) {
+        totalAmount.innerText = "₹" + total;
     }
 }
 
@@ -78,114 +123,236 @@ function removeFromCart(index) {
 
     cart.splice(index, 1);
 
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     displayCart();
 }
 
 
-function getCartTotal() {
+// =========================================
+// 4. CHECKOUT
+// =========================================
 
-    let total = 0;
+function checkout() {
 
-    cart.forEach(function(item) {
-        total += Number(item.price);
-    });
-
-    return total;
-}
-
-
-// --------------------------------------
-// REGISTER
-// --------------------------------------
-
-function registerUser(event) {
-
-    event.preventDefault();
-
-    let name =
-        document.getElementById("registerName").value;
-
-    let email =
-        document.getElementById("registerEmail").value;
-
-    let phone =
-        document.getElementById("registerPhone").value;
-
-    let password =
-        document.getElementById("registerPassword").value;
-
-    let user = {
-        name: name,
-        email: email,
-        phone: phone,
-        password: password
-    };
-
-    localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-    );
-
-    alert("Registration successful!");
-
-    window.location.href = "login.html";
-}
-
-
-// --------------------------------------
-// LOGIN
-// --------------------------------------
-
-function loginUser(event) {
-
-    event.preventDefault();
-
-    let email =
-        document.getElementById("loginEmail").value;
-
-    let password =
-        document.getElementById("loginPassword").value;
-
-    let user =
-        JSON.parse(localStorage.getItem("user"));
-
-    if (user === null) {
-
-        alert("Please register first.");
-
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
         return;
     }
 
-    if (
-        email === user.email &&
-        password === user.password
-    ) {
-
-        localStorage.setItem("loggedIn", "true");
-
-        alert("Login successful!");
-
-        window.location.href = "index.html";
-
-    } else {
-
-        alert("Invalid email or password.");
-    }
+    window.location.href = "checkout.html";
 }
 
 
-// --------------------------------------
-// LOGOUT
-// --------------------------------------
+// =========================================
+// 5. PAYMENT
+// =========================================
 
-function logout() {
+function makePayment(event) {
 
-    localStorage.removeItem("loggedIn");
+    event.preventDefault();
+
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
+
+    const paymentMethod =
+        document.getElementById("paymentMethod");
+
+    if (!paymentMethod) {
+        alert("Payment successful!");
+    } else {
+        alert(
+            "Payment successful using " +
+            paymentMethod.value
+        );
+    }
+
+    localStorage.removeItem("cart");
+    cart = [];
+
+    window.location.href = "order-tracking.html";
+}
+
+
+// =========================================
+// 6. ORDER TRACKING
+// =========================================
+
+function trackOrder() {
+
+    const orderStatus =
+        document.getElementById("orderStatus");
+
+    if (!orderStatus) {
+        return;
+    }
+
+    orderStatus.innerHTML = `
+        <p>✅ Order Confirmed</p>
+        <p>👨‍🍳 Food is being prepared</p>
+        <p>🛵 Delivery partner assigned</p>
+        <p>📦 Order is on the way</p>
+        <p>🏠 Order delivered</p>
+    `;
+}
+
+
+// =========================================
+// 7. SCHEDULE ORDER
+// =========================================
+
+const scheduleForm =
+    document.getElementById("scheduleForm");
+
+if (scheduleForm) {
+
+    scheduleForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const orderId =
+            document.getElementById("orderId").value;
+
+        const date =
+            document.getElementById("scheduleDate").value;
+
+        const time =
+            document.getElementById("scheduleTime").value;
+
+        const status =
+            document.getElementById("status").value;
+
+        if (orderId === "" || date === "" || time === "") {
+
+            alert("Please fill all fields.");
+
+            return;
+        }
+
+        const scheduleData = {
+            orderId: orderId,
+            date: date,
+            time: time,
+            status: status
+        };
+
+        localStorage.setItem(
+            "scheduledOrder",
+            JSON.stringify(scheduleData)
+        );
+
+        const message =
+            document.getElementById("message");
+
+        if (message) {
+
+            message.innerText =
+                "Order scheduled successfully!";
+
+        } else {
+
+            alert("Order scheduled successfully!");
+        }
+    });
+}
+
+
+// =========================================
+// 8. NUTRITION INFORMATION
+// =========================================
+
+function showNutrition(foodName) {
+
+    const nutritionData = {
+
+        "Cheese Pizza": {
+            calories: 285,
+            protein: 12,
+            carbohydrates: 36,
+            fat: 10
+        },
+
+        "Chicken Burger": {
+            calories: 350,
+            protein: 20,
+            carbohydrates: 40,
+            fat: 15
+        },
+
+        "Chicken Biryani": {
+            calories: 450,
+            protein: 25,
+            carbohydrates: 55,
+            fat: 18
+        },
+
+        "Dosa": {
+            calories: 168,
+            protein: 4,
+            carbohydrates: 29,
+            fat: 4
+        }
+    };
+
+    const food = nutritionData[foodName];
+
+    if (!food) {
+        alert("Nutrition information not available.");
+        return;
+    }
+
+    alert(
+        foodName + "\n\n" +
+        "Calories: " + food.calories + " kcal\n" +
+        "Protein: " + food.protein + " g\n" +
+        "Carbohydrates: " + food.carbohydrates + " g\n" +
+        "Fat: " + food.fat + " g"
+    );
+}
+
+
+// =========================================
+// 9. SEARCH FOOD
+// =========================================
+
+function searchFood() {
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    const foodCards =
+        document.querySelectorAll(".food-card");
+
+    if (!searchInput) {
+        return;
+    }
+
+    const searchText =
+        searchInput.value.toLowerCase();
+
+    foodCards.forEach(function(card) {
+
+        const foodName =
+            card.innerText.toLowerCase();
+
+        if (foodName.includes(searchText)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+
+// =========================================
+// 10. LOGOUT
+// =========================================
+
+function logoutUser() {
+
+    localStorage.removeItem("loggedInUser");
 
     alert("You have been logged out.");
 
@@ -193,330 +360,34 @@ function logout() {
 }
 
 
-// --------------------------------------
-// PROFILE
-// --------------------------------------
+// =========================================
+// 11. DISPLAY USER NAME
+// =========================================
 
-function loadProfile() {
+function displayUserName() {
 
-    let user =
-        JSON.parse(localStorage.getItem("user"));
+    const userNameElement =
+        document.getElementById("userName");
 
-    if (user === null) {
-        return;
-    }
+    const userName =
+        localStorage.getItem("userName");
 
-    let name =
-        document.getElementById("profileName");
+    if (userNameElement && userName) {
 
-    let email =
-        document.getElementById("profileEmail");
-
-    let phone =
-        document.getElementById("profilePhone");
-
-    if (name) {
-        name.value = user.name;
-    }
-
-    if (email) {
-        email.value = user.email;
-    }
-
-    if (phone) {
-        phone.value = user.phone;
+        userNameElement.innerText =
+            userName;
     }
 }
 
 
-function saveProfile(event) {
+// =========================================
+// 12. PAGE LOAD
+// =========================================
 
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function() {
 
-    let user = {
-        name:
-            document.getElementById("profileName").value,
+    displayCart();
 
-        email:
-            document.getElementById("profileEmail").value,
+    displayUserName();
 
-        phone:
-            document.getElementById("profilePhone").value,
-
-        password:
-            JSON.parse(localStorage.getItem("user")).password
-    };
-
-    localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-    );
-
-    alert("Profile updated successfully!");
-}
-
-
-// --------------------------------------
-// CHECKOUT
-// --------------------------------------
-
-function checkout(event) {
-
-    event.preventDefault();
-
-    if (cart.length === 0) {
-
-        alert("Your cart is empty.");
-
-        window.location.href = "cart.html";
-
-        return;
-    }
-
-    let address = {
-        address:
-            document.getElementById("address").value,
-
-        city:
-            document.getElementById("city").value,
-
-        state:
-            document.getElementById("state").value,
-
-        pincode:
-            document.getElementById("pincode").value
-    };
-
-    localStorage.setItem(
-        "address",
-        JSON.stringify(address)
-    );
-
-    window.location.href = "payment.html";
-}
-
-
-// --------------------------------------
-// PAYMENT
-// --------------------------------------
-
-function showPaymentTotal() {
-
-    let paymentTotal =
-        document.getElementById("paymentTotal");
-
-    if (paymentTotal) {
-
-        paymentTotal.innerText =
-            getCartTotal();
-    }
-}
-
-
-function makePayment(event) {
-
-    event.preventDefault();
-
-    let selected =
-        document.querySelector(
-            'input[name="payment"]:checked'
-        );
-
-    if (!selected) {
-
-        alert("Please select payment method.");
-
-        return;
-    }
-
-    let order = {
-
-        orderId:
-            Math.floor(Math.random() * 9000) + 1000,
-
-        items: cart,
-
-        total: getCartTotal(),
-
-        paymentMethod:
-            selected.value,
-
-        status: "Placed",
-
-        date:
-            new Date().toLocaleString()
-    };
-
-    let orders =
-        JSON.parse(
-            localStorage.getItem("orders")
-        ) || [];
-
-    orders.push(order);
-
-    localStorage.setItem(
-        "orders",
-        JSON.stringify(orders)
-    );
-
-    localStorage.removeItem("cart");
-
-    cart = [];
-
-    alert("Order placed successfully!");
-
-    window.location.href =
-        "order-history.html";
-}
-
-
-// --------------------------------------
-// ORDER HISTORY
-// --------------------------------------
-
-function displayOrders() {
-
-    let orderHistory =
-        document.getElementById("orderHistory");
-
-    if (!orderHistory) {
-        return;
-    }
-
-    let orders =
-        JSON.parse(
-            localStorage.getItem("orders")
-        ) || [];
-
-    orderHistory.innerHTML = "";
-
-    if (orders.length === 0) {
-
-        orderHistory.innerHTML =
-            "<p>No orders found.</p>";
-
-        return;
-    }
-
-    orders.forEach(function(order) {
-
-        let div =
-            document.createElement("div");
-
-        div.className = "card";
-
-        div.style.margin = "20px auto";
-
-        div.innerHTML =
-            "<h3>Order #" +
-            order.orderId +
-            "</h3>" +
-
-            "<p>Total: ₹" +
-            order.total +
-            "</p>" +
-
-            "<p>Payment: " +
-            order.paymentMethod +
-            "</p>" +
-
-            "<p>Status: " +
-            order.status +
-            "</p>" +
-
-            "<p>Date: " +
-            order.date +
-            "</p>" +
-
-            "<a href='order-tracking.html'>" +
-            "<button>Track Order</button>" +
-            "</a>";
-
-        orderHistory.appendChild(div);
-    });
-}
-
-
-// --------------------------------------
-// REVIEWS
-// --------------------------------------
-
-function submitReview(event) {
-
-    event.preventDefault();
-
-    let restaurant =
-        document.getElementById(
-            "restaurantName"
-        ).value;
-
-    let rating =
-        document.getElementById(
-            "rating"
-        ).value;
-
-    let comment =
-        document.getElementById(
-            "reviewComment"
-        ).value;
-
-    let review = {
-
-        restaurant: restaurant,
-
-        rating: rating,
-
-        comment: comment,
-
-        date: new Date().toLocaleString()
-    };
-
-    let reviews =
-        JSON.parse(
-            localStorage.getItem("reviews")
-        ) || [];
-
-    reviews.push(review);
-
-    localStorage.setItem(
-        "reviews",
-        JSON.stringify(reviews)
-    );
-
-    alert("Thank you for your review!");
-
-    document.getElementById(
-        "restaurantName"
-    ).value = "";
-1
-    document.getElementById(
-        "rating"
-    ).value = "";
-
-    document.getElementById(
-        "reviewComment"
-    ).value = "";
-}
-
-
-// --------------------------------------
-// ADMIN
-// --------------------------------------
-
-function addRestaurant() {
-
-    let name =
-        prompt("Enter restaurant name:");
-
-    if (name === null || name.trim() === "") {
-
-        alert("Restaurant name is required.");
-
-        return;
-    }
-
-    alert(
-        name +
-        " restaurant added successfully!"
-    );
-}
+});

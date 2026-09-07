@@ -38,6 +38,8 @@ public class Main {
                 "Chicken Biryani",
                 150,
                 category
+                
+                
         );
 
         FoodItem dosa = new FoodItem(
@@ -45,6 +47,7 @@ public class Main {
                 "Dosa",
                 50,
                 category
+                
         );
 
         

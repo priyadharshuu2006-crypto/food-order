@@ -1,7 +1,7 @@
 public class OrderItem {
 
-    FoodItem food;
-    int quantity;
+    private FoodItem food;
+    private int quantity;
 
     public OrderItem(FoodItem food, int quantity) {
         this.food = food;
@@ -9,6 +9,24 @@ public class OrderItem {
     }
 
     public double getTotal() {
-        return food.price * quantity;
+        return food.getPrice() * quantity;
+    }
+
+    public void display() {
+        System.out.println(
+                food.getName()
+                + " x "
+                + quantity
+                + " = Rs."
+                + getTotal()
+        );
+    }
+
+    public FoodItem getFood() {
+        return food;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 }

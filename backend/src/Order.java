@@ -2,26 +2,25 @@ public class Order {
 
     int orderId;
     User user;
-    double amount;
-    String status;
+    double total;
 
     public Order(
             int orderId,
             User user,
-            double amount) {
+            double total) {
 
         this.orderId = orderId;
         this.user = user;
-        this.amount = amount;
-        this.status = "Order Placed";
+        this.total = total;
     }
 
     public void display() {
 
-        System.out.println("\n--- ORDER ---");
+        System.out.println();
+        System.out.println("--- ORDER DETAILS ---");
         System.out.println("Order ID: " + orderId);
         System.out.println("Customer: " + user.name);
-        System.out.println("Amount: Rs." + amount);
-        System.out.println("Status: " + status);
+        System.out.println("Total Amount: Rs." + total);
+        System.out.println("Status: Order Placed");
     }
 }

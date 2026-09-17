@@ -3,70 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Food Menu</title>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
 <header>
-    <h1>Food Menu</h1>
+    <h1>🍕 Food Menu</h1>
 
     <nav>
-        <a href="index.html">Home</a>
         <a href="restaurants.html">Restaurants</a>
         <a href="cart.html">Cart</a>
+        <a href="nutrition.html">Nutrition</a>
     </nav>
 </header>
 
-<div class="section">
+<main>
 
-    <h2>Popular Food</h2>
+    <input
+        type="text"
+        id="searchFood"
+        placeholder="Search food..."
+        onkeyup="searchFood()"
+    >
 
     <div class="food-container">
 
+        <!-- Pizza -->
         <div class="food-card">
-            <img src="../images/pizza.jpg" alt="Pizza">
+            <img src="../images/pizza.jpg" alt="Cheese Pizza">
+
             <h2>Cheese Pizza</h2>
-            <p>Delicious cheese pizza</p>
-            <h3>₹199</h3>
-            <button onclick="addToCart('Cheese Pizza',199)">
+            <p>₹250</p>
+
+            <button onclick="addToCart('Cheese Pizza', 250)">
                 Add to Cart
+            </button>
+
+            <button onclick="showNutrition('Cheese Pizza',400,20,20,15)">
+                Nutrition
             </button>
         </div>
 
+
+        <!-- Burger -->
         <div class="food-card">
-            <img src="../images/burger.jpg" alt="Burger">
+            <img src="../images/burger.jpg" alt="Chicken Burger">
+
             <h2>Chicken Burger</h2>
-            <p>Crispy chicken burger</p>
-            <h3>₹149</h3>
-            <button onclick="addToCart('Chicken Burger',149)">
+            <p>₹180</p>
+
+            <button onclick="addToCart('Chicken Burger', 180)">
                 Add to Cart
+            </button>
+
+            <button onclick="showNutrition('Chicken Burger',450,25,35,20)">
+                Nutrition
             </button>
         </div>
 
+
+        <!-- Biryani -->
         <div class="food-card">
-            <img src="../images/biryani.jpg" alt="Biryani">
+            <img src="../images/biryani.jpg" alt="Chicken Biryani">
+
             <h2>Chicken Biryani</h2>
-            <p>Spicy chicken biryani</p>
-            <h3>₹220</h3>
-            <button onclick="addToCart('Chicken Biryani',220)">
+            <p>₹300</p>
+
+            <button onclick="addToCart('Chicken Biryani', 300)">
                 Add to Cart
+            </button>
+
+            <button onclick="showNutrition('Chicken Biryani',520,28,65,18)">
+                Nutrition
             </button>
         </div>
 
+
+        <!-- Dosa -->
         <div class="food-card">
-            <img src="../images/dosa.jpg" alt="Dosa">
+            <img src="../images/dosa.jpg" alt="Masala Dosa">
+
             <h2>Masala Dosa</h2>
-            <p>Crispy masala dosa</p>
-            <h3>₹80</h3>
-            <button onclick="addToCart('Masala Dosa',80)">
+            <p>₹100</p>
+
+            <button onclick="addToCart('Masala Dosa', 100)">
                 Add to Cart
+            </button>
+
+            <button onclick="showNutrition('Masala Dosa',350,8,50,12)">
+                Nutrition
             </button>
         </div>
 
     </div>
-</div>
+
+</main>
 
 <script src="../js/script.js"></script>
+
 </body>
 </html>

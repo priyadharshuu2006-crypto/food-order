@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,167 +8,156 @@
     <title>Nutrition Information</title>
 
     <link rel="stylesheet" href="../css/style.css">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-        }
-
-        .nutrition-container {
-            width: 90%;
-            max-width: 900px;
-            margin: 40px auto;
-        }
-
-        .nutrition-container h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .food-card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .food-card h2 {
-            margin-top: 0;
-        }
-
-        .nutrition-details {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .nutrition-box {
-            padding: 15px;
-            background-color: #f1f1f1;
-            border-radius: 8px;
-        }
-
-        .nutrition-box strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .back-button {
-            display: block;
-            width: 150px;
-            margin: 30px auto;
-            padding: 12px;
-            text-align: center;
-            text-decoration: none;
-            background-color: #ff5722;
-            color: white;
-            border-radius: 6px;
-        }
-    </style>
 </head>
 
 <body>
 
+<header>
+
+    <h1>🍎 Nutrition Information</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="food-menu.html">Food Menu</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <h2>Nutrition Information</h2>
+
     <div class="nutrition-container">
 
-        <h1>🍎 Nutrition Information</h1>
 
-        <!-- Pizza -->
-        <div class="food-card">
+        <!-- Cheese Pizza -->
+        <div class="nutrition-card">
+
             <h2>🍕 Cheese Pizza</h2>
 
-            <div class="nutrition-details">
+            <p>
+                <strong>Calories:</strong>
+                400 kcal
+            </p>
 
-                <div class="nutrition-box">
-                    <strong>Calories</strong>
-                    285 kcal
-                </div>
+            <p>
+                <strong>Protein:</strong>
+                20 g
+            </p>
 
-                <div class="nutrition-box">
-                    <strong>Protein</strong>
-                    12 g
-                </div>
+            <p>
+                <strong>Carbohydrates:</strong>
+                20 g
+            </p>
 
-                <div class="nutrition-box">
-                    <strong>Carbohydrates</strong>
-                    36 g
-                </div>
+            <p>
+                <strong>Fat:</strong>
+                15 g
+            </p>
 
-                <div class="nutrition-box">
-                    <strong>Fat</strong>
-                    10 g
-                </div>
-
-            </div>
         </div>
 
-        <!-- Burger -->
-        <div class="food-card">
+
+        <!-- Chicken Burger -->
+        <div class="nutrition-card">
+
             <h2>🍔 Chicken Burger</h2>
 
-            <div class="nutrition-details">
+            <p>
+                <strong>Calories:</strong>
+                450 kcal
+            </p>
 
-                <div class="nutrition-box">
-                    <strong>Calories</strong>
-                    350 kcal
-                </div>
+            <p>
+                <strong>Protein:</strong>
+                25 g
+            </p>
 
-                <div class="nutrition-box">
-                    <strong>Protein</strong>
-                    20 g
-                </div>
+            <p>
+                <strong>Carbohydrates:</strong>
+                35 g
+            </p>
 
-                <div class="nutrition-box">
-                    <strong>Carbohydrates</strong>
-                    40 g
-                </div>
+            <p>
+                <strong>Fat:</strong>
+                20 g
+            </p>
 
-                <div class="nutrition-box">
-                    <strong>Fat</strong>
-                    15 g
-                </div>
-
-            </div>
         </div>
 
-        <!-- Biryani -->
-        <div class="food-card">
-            <h2>🍛 Chicken Biryani</h2>
 
-            <div class="nutrition-details">
+        <!-- Chicken Biryani -->
+        <div class="nutrition-card">
 
-                <div class="nutrition-box">
-                    <strong>Calories</strong>
-                    450 kcal
-                </div>
+            <h2>🍗 Chicken Biryani</h2>
 
-                <div class="nutrition-box">
-                    <strong>Protein</strong>
-                    25 g
-                </div>
+            <p>
+                <strong>Calories:</strong>
+                520 kcal
+            </p>
 
-                <div class="nutrition-box">
-                    <strong>Carbohydrates</strong>
-                    55 g
-                </div>
+            <p>
+                <strong>Protein:</strong>
+                28 g
+            </p>
 
-                <div class="nutrition-box">
-                    <strong>Fat</strong>
-                    18 g
-                </div>
+            <p>
+                <strong>Carbohydrates:</strong>
+                65 g
+            </p>
 
-            </div>
+            <p>
+                <strong>Fat:</strong>
+                18 g
+            </p>
+
         </div>
 
-        <a href="restaurants.html" class="back-button">
-            Back to Restaurants
-        </a>
+
+        <!-- Masala Dosa -->
+        <div class="nutrition-card">
+
+            <h2>🥞 Masala Dosa</h2>
+
+            <p>
+                <strong>Calories:</strong>
+                350 kcal
+            </p>
+
+            <p>
+                <strong>Protein:</strong>
+                8 g
+            </p>
+
+            <p>
+                <strong>Carbohydrates:</strong>
+                50 g
+            </p>
+
+            <p>
+                <strong>Fat:</strong>
+                12 g
+            </p>
+
+        </div>
+
 
     </div>
+
+
+    <br>
+
+    <a href="food-menu.html" class="back-button">
+        ← Back to Food Menu
+    </a>
+
+</main>
+
+
+<script src="../js/script.js"></script>
 
 </body>
 </html>

@@ -1,44 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Checkout</title>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
-<header>
-    <h1>Checkout</h1>
-</header>
+    <!-- Header -->
+    <header>
+        <h1>🍴 Food Delivery</h1>
+    </header>
 
-<div class="form-box">
 
-    <h2>Delivery Address</h2>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="food-menu.html">Food Menu</a>
+        <a href="cart.html">Cart</a>
+    </nav>
 
-    <form onsubmit="checkout(event)">
 
-        <label>Address</label>
-        <textarea id="address" required></textarea>
+    <!-- Checkout -->
+    <div class="form-box">
 
-        <label>City</label>
-        <input type="text" id="city" required>
+        <h2>Checkout</h2>
 
-        <label>State</label>
-        <input type="text" id="state" required>
+        <form id="checkoutForm">
 
-        <label>PIN Code</label>
-        <input type="text" id="pincode" required>
+            <!-- Address -->
+            <label for="address">Delivery Address</label>
 
-        <button type="submit">Continue to Payment</button>
+            <textarea
+                id="address"
+                name="address"
+                placeholder="Enter your full address"
+                required>
+            </textarea>
 
-    </form>
 
-    <br>
-    <a href="cart.html">Back to Cart</a>
+            <!-- City -->
+            <label for="city">City</label>
 
-</div>
+            <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Enter your city"
+                required>
 
-<script src="../js/script.js"></script>
+
+            <!-- State -->
+            <label for="state">State</label>
+
+            <input
+                type="text"
+                id="state"
+                name="state"
+                placeholder="Enter your state"
+                required>
+
+
+            <!-- PIN Code -->
+            <label for="pinCode">PIN Code</label>
+
+            <input
+                type="text"
+                id="pinCode"
+                name="pinCode"
+                placeholder="Enter 6-digit PIN code"
+                maxlength="6"
+                pattern="[0-9]{6}"
+                required>
+
+
+            <!-- Continue -->
+            <button type="submit">
+                Continue to Payment
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="cart.html">← Back to Cart</a>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="../js/script.js"></script>
+
+
+    <!-- Checkout JavaScript -->
+    <script>
+
+        document.getElementById("checkoutForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const address =
+                    document.getElementById("address").value.trim();
+
+                const city =
+                    document.getElementById("city").value.trim();
+
+                const state =
+                    document.getElementById("state").value.trim();
+
+                const pinCode =
+                    document.getElementById("pinCode").value.trim();
+
+
+                if (!address || !city || !state || !pinCode) {
+
+                    alert("Please fill all the fields.");
+
+                    return;
+                }
+
+
+                if (!/^[0-9]{6}$/.test(pinCode)) {
+
+                    alert("Please enter a valid 6-digit PIN code.");
+
+                    return;
+                }
+
+
+                // Save delivery address
+                const deliveryAddress = {
+
+                    address: address,
+
+                    city: city,
+
+                    state: state,
+
+                    pinCode: pinCode
+
+                };
+
+
+                localStorage.setItem(
+                    "deliveryAddress",
+                    JSON.stringify(deliveryAddress)
+                );
+
+
+                // Go to payment page
+                window.location.href = "payment.html";
+
+            });
+
+    </script>
+
 </body>
+
 </html>
